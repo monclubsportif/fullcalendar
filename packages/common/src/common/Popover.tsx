@@ -84,7 +84,7 @@ export class Popover extends BaseComponent<PopoverProps> {
   handleDocumentMouseDown = (ev) => {
     // only hide the popover if the click happened outside the popover
     const target = getEventTargetViaRoot(ev) as HTMLElement
-    if (!this.rootEl.contains(target)) {
+    if (!this.rootEl.contains(target) && this.context.options.popoverCloseOnMouseEvent) {
       this.handleCloseClick()
     }
   }
